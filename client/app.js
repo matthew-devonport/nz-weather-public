@@ -2,7 +2,7 @@ import {loadWeather} from './api'
 import moment from 'moment'
 
 export function launchApp() {
-webTemplate()
+// webTemplate()
 loadWeather()
 .then(result => {
   renderData(result.body)
