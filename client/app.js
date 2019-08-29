@@ -19,7 +19,7 @@ function webTemplate() {
 
 
 function renderData(weatherData) {
-  console.log(weatherData.sys.sunset)
+  console.log(weatherData)
 
 let html = `<h1>${weatherData.name} - ${weatherData.sys.country}</h1>
             <h2>Temperature</h2>
