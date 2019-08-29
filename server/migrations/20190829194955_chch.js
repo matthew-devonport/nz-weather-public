@@ -1,5 +1,5 @@
 exports.up = (knex, Promise) => {
-  return knex.schema.createTable('wgtn', (table) => {
+  return knex.schema.createTable('chch', (table) => {
     table.increments('id').primary()
     table.string('country')
     table.string('city')
@@ -18,5 +18,5 @@ exports.up = (knex, Promise) => {
 }
 
 exports.down = (knex, Promise) => {
-  return knex.schema.dropTable('wgtn')
+  return knex.schema.dropTable('chch')
 }
