@@ -2,14 +2,19 @@ import {loadWeather} from './api'
 import moment from 'moment'
 
 export function launchApp() {
+// if time load db
+// else load weather 
 loadWeather()
+.then(result => {
+  sortData(result.body)
+  return result
+})
 .then(result => {
   renderData(result.body)
 })
 }
 
 function renderData(weatherData) {
-  console.log(weatherData)
 
 let html = `<h1>${weatherData.name} - ${weatherData.sys.country}</h1>
             <h2>Temperature</h2>
@@ -23,4 +28,13 @@ let html = `<h1>${weatherData.name} - ${weatherData.sys.country}</h1>
 
 `
 document.getElementById('weather-data').innerHTML = html
+}
+
+function sortData(weatherData) {
+  console.log(weatherData)
+  
+let city = weatherData.name // city = 'wgtn' / 'auk' / 'chch'
+ console.log(city)
+let dayData = {}
+
 }
