@@ -9,7 +9,7 @@ exports.up = (knex, Promise) => {
     table.float('minTemp')
     table.integer('humidity')
     table.integer('pressure')
-    table.string('cloudDescription')
+    table.string('weatherDescription')
     table.float('windSpeed')
     table.integer('windDirection')
     table.integer('sunrise')
