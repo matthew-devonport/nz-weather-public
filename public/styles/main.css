@@ -8,27 +8,48 @@ Highlight #112D4E
 
 * {
   margin: 0;
-  font-family: 'Nunito', sans-serif;
+  
 }
+
+/* Main Sections */
 
 #header {
-  background-color: #DBE2EF;
   width: 100%;
   height: 20vh;
+  font-family: 'Courgette', cursive;
 }
 
+
+
 #allthestuff {
+  font-family: 'Nunito', sans-serif;
   display: flex;
   flex-flow: row;
   height: 80vh;
 }
 
 #options {
-  background-color: #3f72af;
+  
   width: 50%;
 }
 
 #display {
-  background-color: #112D4E;
+
   width: 50%;
+}
+
+/* Images */
+
+#background{
+  position: fixed;
+  width: 100vw;
+  z-index: -1;
+  top: -25%
+}
+
+#sun {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 20vh;
 }
