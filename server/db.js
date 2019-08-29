@@ -3,7 +3,8 @@ module.exports = {
   getUser,
   getUsers,
   addUser,
-  getUsersWhoLike
+  getUsersWhoLike,
+  insertDay,
 }
 
 function getUsers (db) {
@@ -26,3 +27,6 @@ function getUsersWhoLike(favouriteName, db) {
     .where('favourites.name', favouriteName)
 }
 
+function insertDay(dayData, city, db) {
+  return db(city).insert(dayData)
+}
