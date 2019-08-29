@@ -2,21 +2,11 @@ import {loadWeather} from './api'
 import moment from 'moment'
 
 export function launchApp() {
-// webTemplate()
 loadWeather()
 .then(result => {
   renderData(result.body)
 })
 }
-
-function webTemplate() {
-  let html = `
-    <h1>Here's Tom with the weather:</h1>
-  `
-  document.getElementById('app').innerHTML = html
-
-}
-
 
 function renderData(weatherData) {
   console.log(weatherData)
