@@ -13,6 +13,7 @@ exports.up = (knex, Promise) => {
     table.integer('windDirection')
     table.integer('sunrise')
     table.integer('sunset')
+    table.integer('dateEntered')
   })
 }
 
