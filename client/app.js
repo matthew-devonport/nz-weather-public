@@ -1,9 +1,11 @@
 import {loadWeather} from './api'
 import moment from 'moment'
+import request from 'superagent'
 
 export function launchApp() {
 // if time load db
 // else load weather 
+onclicks()
 loadWeather()
 .then(result => {
   sortData(result.body)
@@ -45,4 +47,15 @@ let dayData = {}
 dayData.city = weatherData.name
 
 
+}
+
+function onclicks() {
+  document.getElementById('submit').addEventListener('click', (e) => {
+    e.preventDefault()
+    var city = document.getElementById('city').value
+    request.get('/v1/city-info/' + city)
+    .then(result => {
+      console.log(result.body)
+    })
+  })
 }
