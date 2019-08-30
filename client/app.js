@@ -37,7 +37,7 @@ let html = `<h1>${weatherData.city} - ${weatherData.country}</h1>
             <p>Wind Direction: ${weatherData.windDirection}<p>
 
             `
-            document.getElementById('display').innerHTML = html
+            document.getElementById('info').innerHTML = html
 }
 
 function sortData(weatherData) {
