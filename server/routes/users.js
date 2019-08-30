@@ -4,12 +4,9 @@ const db = require('../db')
 
 const router = express.Router()
 
-
 router.get('/', (req, res) => {
   res.render('index')
 })
-
-
 
 router.post('/', (req, res) => {
   let data = req.body.body
@@ -23,15 +20,13 @@ db.insertDay(dayData, req.app.connection)
   })
 })
 })
+
 router.get('/v1/city-info/:city', (req, res) => {
   city = req.params.city
   db.getCityInfo(city, req.app.connection).then(result => {
     res.json(result)
   })
 })
-
-
-module.exports = router
 
 function sortData(weatherData) {
 
@@ -58,5 +53,6 @@ function sortData(weatherData) {
   dayData.dateEntered = dateEntered
   
   return dayData
-  
   }
+
+  module.exports = router

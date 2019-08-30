@@ -1,20 +1,26 @@
 import request from 'superagent'
 
-export function loadWeather() {
-    // check db dateEntered
-    // checkEntry()
+export function checkEntry() {
+    let currentDate = new Date
+    request.get('/v1/city-info/wellington').then(result => {
+        let resultJSON = JSON.parse(result.text)
+        let dateEntered = resultJSON[0].dateEntered
 
-    // needs to check all cities
-    return request.get('http://api.openweathermap.org/data/2.5/weather?q=wellington&appid=3c621f4b7b3efc1ffd3c2eba217d8e0c&units=metric')
-    .catch(e => {
-        console.log('oops', e)
-    })
-   .then((result) => {
-       return request.post('/')
-        .send(result)
+        if ((dateEntered + 60000) < currentDate) {
+            loadWeather()
+        }
     })
 }
 
-function checkEntry() {
-//do stuff
+function loadWeather() {
+
+    // needs to check all cities
+    return request.get('http://api.openweathermap.org/data/2.5/weather?q=wellington&appid=3c621f4b7b3efc1ffd3c2eba217d8e0c&units=metric')
+        .catch(e => {
+            console.log('oops', e)
+        })
+        .then((result) => {
+            return request.post('/')
+                .send(result)
+        })
 }
