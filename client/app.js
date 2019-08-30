@@ -1,24 +1,18 @@
-import {loadWeather} from './api'
+import {checkEntry} from './api'
 import moment from 'moment'
 import request from 'superagent'
 
 const db = require('../server/db')
 
 export function launchApp() {
-// if time load db
-// else load weather 
+
 onclicks()
-loadWeather()
-// .then(result => {
-//   sortData(result.body)
-//   return result
-// })
-// .then(result => {
-//   renderData(result.body)
-// })
+// check db dateEntered
+checkEntry()
+
 }
 
-function renderData(weatherData) {
+export function renderData(weatherData) {
 
 let html = `<h1>${weatherData.city} - ${weatherData.country}</h1>
             <h2>Temperature</h2>
