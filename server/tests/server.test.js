@@ -15,11 +15,4 @@ test('GET /', () => {
   return request(server)
     .get('/')
     .expect(200)
-    .then((res) => {
-      const $ = cheerio.load(res.text)
-      const firstLiText = $('li').first().text()
-      expect(firstLiText).toBe('test user 1 (test1@users.net)')
-      expect($('li').length).toBe(3)
-    })
-    .catch(err => expect(err).toBeNull())
 })
