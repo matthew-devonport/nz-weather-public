@@ -20,24 +20,24 @@ loadWeather()
 
 function renderData(weatherData) {
 
-let html = `<h1>${weatherData.name} - ${weatherData.sys.country}</h1>
+let html = `<h1>${weatherData.city} - ${weatherData.country}</h1>
             <h2>Temperature</h2>
-            <p>Current Temp: ${weatherData.main.temp}<p>
-            <p>Max Temp: ${weatherData.main.temp_max}<p>
-            <p>Min Temp: ${weatherData.main.temp_min}<p>
-            <p>Humidity: ${weatherData.main.humidity}<p>
-            <p>Pressure: ${weatherData.main.pressure}<p><br>
+            <p>Current Temp: ${weatherData.currentTemp}<p>
+            <p>Max Temp: ${weatherData.maxTemp}<p>
+            <p>Min Temp: ${weatherData.minTemp}<p>
+            <p>Humidity: ${weatherData.humidity}<p>
+            <p>Pressure: ${weatherData.pressure}<p><br>
             <h2>Weather Description</h2>
-            <p>Weather Description: ${weatherData.weather[0].description}<p><br>
+            <p>Weather Description: ${weatherData.weatherDescription}<p><br>
             <h2>Sunset / Sunrise</h2>
-            <p>Sunrise: ${moment.unix(weatherData.sys.sunrise)}<p>
-            <p>Sunset: ${moment.unix(weatherData.sys.sunset)}<p><br>
+            <p>Sunrise: ${moment.unix(weatherData.sunrise)}<p>
+            <p>Sunset: ${moment.unix(weatherData.sunset)}<p><br>
             <h2>Wind</h2>
-            <p>Wind Speed: ${weatherData.wind.speed} mps<p>
-            <p>Wind Direction: ${weatherData.wind.deg}<p>
+            <p>Wind Speed: ${weatherData.windSpeed} mps<p>
+            <p>Wind Direction: ${weatherData.windDirection}<p>
 
-`
-document.getElementById('weather-data').innerHTML = html
+            `
+            document.getElementById('display').innerHTML = html
 }
 
 function sortData(weatherData) {
@@ -57,7 +57,7 @@ function onclicks() {
     var city = document.getElementById('city').value
     request.get('/v1/city-info/' + city)
     .then(result => {
-      console.log(result.body)
+      renderData(result.body[0])
     })
   })
 }
