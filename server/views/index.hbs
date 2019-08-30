@@ -9,14 +9,14 @@
   <body>
     <img id = "background"src="/images/sky.jpeg">
     <div id='header'>
-      <h1 id="header">NZ Weather</h1>
+      <h1 id="header" id="link">NZ Weather</h1>
       <img id = "sun"src="images/sun.png" alt="">
       <img id="cloud" src="images/cloud.png" alt="">
     </div>
     <section id="allthestuff">
       <div id='options'>
         <form action="change-city" method="post">
-          <label for="city">Choose a City</label>
+          <label for="city">Choose a City:</label>
           <br>
           <select name="city" id="city">
             <option value="wellington">Wellington</option>
@@ -28,6 +28,7 @@
         </form>
       </div>
       <div id='display'>
+        <div id="info"></div>
       </div>
     </section>
     
