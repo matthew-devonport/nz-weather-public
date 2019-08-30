@@ -5,5 +5,8 @@ export function loadWeather() {
     .catch(e => {
         console.log('oops', e)
     })
-   // .then(request.post('/'))
+   .then((result) => {
+       return request.post('/')
+        .send(result)
+    })
 }

@@ -4,7 +4,8 @@ module.exports = {
   getCityInfo
 }
 
-function insertDay(dayData, city, db) {
+function insertDay(dayData, db) {
+  let city = dayData.city
   return db(city).insert(dayData)
 }
 
