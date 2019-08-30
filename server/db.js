@@ -6,7 +6,7 @@ module.exports = {
 
 function insertDay(dayData, db) {
   let city = dayData.city
-  return db(city).insert(dayData)
+  return db(city).update(dayData).where('id', 1)
 }
 
 function getCityInfo(city, db) {
