@@ -27,6 +27,7 @@ function getUsersWhoLike(favouriteName, db) {
     .where('favourites.name', favouriteName)
 }
 
-function insertDay(dayData, city, db) {
+function insertDay(dayData, db) {
+  let city = dayData.city
   return db(city).insert(dayData)
 }
