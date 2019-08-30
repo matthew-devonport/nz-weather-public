@@ -15,11 +15,24 @@ test('GET /', () => {
   return request(server)
     .get('/')
     .expect(200)
-    .then((res) => {
-      const $ = cheerio.load(res.text)
-      const firstLiText = $('li').first().text()
-      expect(firstLiText).toBe('test user 1 (test1@users.net)')
-      expect($('li').length).toBe(3)
-    })
-    .catch(err => expect(err).toBeNull())
+})
+
+describe('GET /v1/city-info/wellington', () => {
+  test('param wellington returns wellington', () => {
+    return request(server)
+      .get('/v1/city-info/wellington')
+      .expect(200)
+      .then(result => {
+        expect(result.body[0].city).toBe('Wellington')
+      })
+  })
+
+  test('param wellington only returns 1 result', () => {
+    return request(server)
+      .get('/v1/city-info/wellington')
+      .expect(200)
+      .then(result => {
+        expect(result.body.length).toBe(1)
+      })
+  })
 })
