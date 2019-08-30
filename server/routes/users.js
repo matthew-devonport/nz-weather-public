@@ -34,7 +34,7 @@ router.get('/v1/city-info/:city', (req, res) => {
 module.exports = router
 
 function sortData(weatherData) {
-  
+  let dateEntered = new Date
   let city = weatherData.name
   let weather = weatherData.weather[0].description
   let {temp, temp_max, temp_min, humidity, pressure} = weatherData.main  
@@ -53,6 +53,7 @@ function sortData(weatherData) {
   dayData.sunset = sunset
   dayData.windSpeed = speed
   dayData.windDirection = deg
+  dayData.dateEntered = dateEntered
   
   return dayData
   
