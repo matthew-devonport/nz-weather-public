@@ -1,6 +1,4 @@
 import request from 'superagent'
-import { renderData } from './app'
-
 
 export function checkEntry() {
     let currentDate = new Date

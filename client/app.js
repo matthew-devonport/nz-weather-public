@@ -2,12 +2,9 @@ import {checkEntry} from './api'
 import moment from 'moment'
 import request from 'superagent'
 
-const db = require('../server/db')
-
 export function launchApp() {
 
 onclicks()
-// check db dateEntered
 checkEntry()
 
 }
@@ -32,17 +29,6 @@ let html = `<h1>${weatherData.city} - ${weatherData.country}</h1>
 
             `
             document.getElementById('display').innerHTML = html
-}
-
-function sortData(weatherData) {
-  console.log(weatherData)
-  
-let city = weatherData.name // city = 'wgtn' / 'auk' / 'chch'
- console.log(city)
-let dayData = {}
-dayData.city = weatherData.name
-
-
 }
 
 function onclicks() {
