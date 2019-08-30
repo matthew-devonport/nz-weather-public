@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EDA Phase 1 Express Boilerplate</title>
+    <title>Weather Stuff Aye</title>
     <script src='/bundle.js'></script>
     <link rel="stylesheet" href="styles/main.css">
 <link href="https://fonts.googleapis.com/css?family=Courgette|Nunito|Oleo+Script&display=swap" rel="stylesheet">
@@ -11,25 +11,23 @@
     <div id='header'>
       <h1>NZ Weather</h1>
       <img id = "sun"src="images/sun.png" alt="">
+      <img id="cloud" src="images/cloud.png" alt="">
     </div>
     <section id="allthestuff">
       <div id='options'>
         <form action="change-city" method="post">
           <label for="city">Choose a City</label>
           <br>
-          <select name="city">
+          <select name="city" id="city">
             <option value="wellington">Wellington</option>
-            <option value="Auckland">Auckland</option>
-            <option value="Christchurch">Christchurch</option>
-            <option value="Dunedin">Dunedin</option>
-            <option value="wakefield">Wakefield</option>
+            <option value="auckland">Auckland</option>
+            <option value="christchurch">Christchurch</option>
           </select>
           <br>
           <input type="submit" id="submit">
         </form>
       </div>
       <div id='display'>
-        <div id='weather-data'></div>
       </div>
     </section>
     
